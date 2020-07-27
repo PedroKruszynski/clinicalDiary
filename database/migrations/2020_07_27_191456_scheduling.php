@@ -13,7 +13,13 @@ class Scheduling extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('scheduling', function (Blueprint $table) {
+            $table->id();
+            $table->string('description', 255);
+            $table->timestamp('date_of_scheduling');
+            $table->foreignId('doctor_id')->constrained('doctor');
+            $table->foreignId('patient_id')->constrained('patient');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class Scheduling extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('scheduling');
     }
 }
