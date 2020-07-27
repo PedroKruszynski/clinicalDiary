@@ -21,10 +21,10 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'interview'], function() {
-    Route::get('/',                                     'InterviewController@index')->name('interviews');
-    Route::get('/createAndAlterView/{id?}',             'InterviewController@createAndAlterView')->middleware('role:developer|administrador')->name('createAndAlterView');
-    Route::post('/save',                                'InterviewController@saveInterview')->middleware('role:developer|administrador')->name('saveInterview');
-    Route::put('/{id}',                                 'InterviewController@disableInterview')->middleware('role:developer|administrador')->name('disableInterview');
-    Route::delete('/{id}',                              'InterviewController@deleteInterview')->middleware('role:developer|administrador')->name('deleteInterview');
+Route::group(['prefix' => 'doctor'], function() {
+    Route::get('/',                                     'DoctorController@index')->name('doctor.index');
+    // Route::get('/createAndAlterView/{id?}',             'InterviewController@createAndAlterView')->middleware('role:developer|administrador')->name('createAndAlterView');
+    // Route::post('/save',                                'InterviewController@saveInterview')->middleware('role:developer|administrador')->name('saveInterview');
+    // Route::put('/{id}',                                 'InterviewController@disableInterview')->middleware('role:developer|administrador')->name('disableInterview');
+    // Route::delete('/{id}',                              'InterviewController@deleteInterview')->middleware('role:developer|administrador')->name('deleteInterview');
 });

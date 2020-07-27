@@ -1,3 +1,0 @@
-$('.imageCrud').hover(() => {
-    alert('oii');
-});

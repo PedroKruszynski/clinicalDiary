@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('.imageCrud').hover(function () {
+$('.imageCrud').click(function () {
   alert('oii');
 });
 
