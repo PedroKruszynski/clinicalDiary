@@ -40,5 +40,4 @@ class DoctorService implements DoctorInterface
         return $this->doctorRepository->findOne($request->id);
     }
 
-
 }

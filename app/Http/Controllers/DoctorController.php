@@ -25,7 +25,7 @@ class DoctorController extends Controller
     public function createAndAlterView(Request $request)
     {
         
-        $doctor = isset($request->id) ? $this->doctorService->findOne($request) : '';
+        $doctor = isset($request->id) ? $this->doctorService->findOne($request) : null;
         return view('Doctor.DoctorCreateAndAlter', compact('doctor'));
     }
 
