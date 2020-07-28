@@ -26,7 +26,8 @@
                         @if(isset($patient->name))
                             value="{{$patient->name}}"
                         @endif
-                        placeholder="Nome">
+                        placeholder="Nome"
+                        required>
     
             </div>
         </div>
@@ -37,7 +38,7 @@
 
                 <label for="crm">Email</label>
     
-                <input  type="text" 
+                <input  type="email" 
                         class="form-control" 
                         id="email"
                         placeholder="email"
@@ -45,7 +46,8 @@
                         @if(isset($patient->email))
                             value="{{$patient->email}}"
                         @endif
-                        name="email">
+                        name="email"
+                        required>
     
             </div>
 
@@ -65,7 +67,8 @@
                         @if(isset($patient->cpf))
                             value="{{$patient->cpf}}"
                         @endif
-                        name="cpf">
+                        name="cpf"
+                        required>
     
             </div>
 
@@ -81,7 +84,8 @@
                         @if(isset($patient->telephone))
                             value="{{$patient->telephone}}"
                         @endif
-                        name="telephone">
+                        name="telephone"
+                        required>
     
             </div>
 
@@ -95,7 +99,8 @@
                        @if(isset($patient->date_of_birth))
                             value="{{$patient->date_of_birth }}"
                        @endif
-                       id="date">
+                       id="date"
+                       required>
     
             </div>
 

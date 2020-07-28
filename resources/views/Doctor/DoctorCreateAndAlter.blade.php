@@ -26,7 +26,8 @@
                         @if(isset($doctor->name))
                             value="{{$doctor->name}}"
                         @endif
-                        placeholder="Nome">
+                        placeholder="Nome"
+                        required>
     
             </div>
         </div>
@@ -45,7 +46,8 @@
                         @if(isset($doctor->cpf))
                             value="{{$doctor->cpf}}"
                         @endif
-                        name="cpf">
+                        name="cpf"
+                        required>
     
             </div>
 
@@ -61,7 +63,8 @@
                         @if(isset($doctor->crm))
                             value="{{$doctor->crm}}"
                         @endif
-                        name="crm">
+                        name="crm"
+                        required>
     
             </div>
 
@@ -81,7 +84,8 @@
                         @if(isset($doctor->telephone))
                             value="{{$doctor->telephone}}"
                         @endif
-                        name="telephone">
+                        name="telephone"
+                        required>
     
             </div>
 
@@ -95,7 +99,8 @@
                        @if(isset($doctor->date_of_birth))
                             value="{{$doctor->date_of_birth }}"
                        @endif
-                       id="date">
+                       id="date"
+                       required>
     
             </div>
 
@@ -111,7 +116,8 @@
                         @if(isset($doctor->specialty))
                             value="{{$doctor->specialty}}"
                         @endif
-                        name="specialty">
+                        name="specialty"
+                        required>
     
             </div>
 

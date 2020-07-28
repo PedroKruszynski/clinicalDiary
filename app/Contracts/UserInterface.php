@@ -5,7 +5,7 @@ namespace App\Contracts;
 use Symfony\Component\HttpFoundation\Request;
 // use App\Http\Requests\DoctorRequest;
 
-interface PatientInterface {
+interface UserInterface {
 
     public function index();
 

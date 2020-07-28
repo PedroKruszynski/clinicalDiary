@@ -36,3 +36,11 @@ Route::group(['prefix' => 'patient'], function() {
     Route::put('/{id}',                                 'PatientController@update')->name('patient.update');
     Route::delete('/{id}',                              'PatientController@delete')->name('patient.delete');
 });
+
+Route::group(['prefix' => 'user'], function() {
+    Route::get('/',                                     'UserController@index')->name('user.index');
+    Route::get('/createAndAlterView/{id?}',             'UserController@createAndAlterView')->name('user.createAndAlterView');
+    Route::post('/',                                    'UserController@save')->name('user.save');
+    Route::put('/{id}',                                 'UserController@update')->name('user.update');
+    Route::delete('/{id}',                              'UserController@delete')->name('user.delete');
+});
