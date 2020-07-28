@@ -87,7 +87,7 @@
 
             <div class="form-group col-4">
 
-                <label for="date">Date</label>
+                <label for="date">Data de nascimento</label>
     
                 <input class="form-control" 
                        type="date"
