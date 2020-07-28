@@ -93,8 +93,8 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('.imageCrud').click(function () {
-  alert('oii');
+$(document).ready(function () {
+  $('.table').DataTable();
 });
 
 /***/ }),

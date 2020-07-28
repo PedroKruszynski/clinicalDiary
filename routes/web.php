@@ -23,8 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'doctor'], function() {
     Route::get('/',                                     'DoctorController@index')->name('doctor.index');
-    // Route::get('/createAndAlterView/{id?}',             'InterviewController@createAndAlterView')->middleware('role:developer|administrador')->name('createAndAlterView');
-    // Route::post('/save',                                'InterviewController@saveInterview')->middleware('role:developer|administrador')->name('saveInterview');
-    // Route::put('/{id}',                                 'InterviewController@disableInterview')->middleware('role:developer|administrador')->name('disableInterview');
-    // Route::delete('/{id}',                              'InterviewController@deleteInterview')->middleware('role:developer|administrador')->name('deleteInterview');
+    Route::get('/createAndAlterView/{id?}',             'DoctorController@createAndAlterView')->name('doctor.createAndAlterView');
+    Route::post('/',                                    'DoctorController@save')->name('doctor.save');
+    Route::put('/{id}',                                 'DoctorController@update')->name('doctor.update');
+    Route::delete('/{id}',                              'DoctorController@delete')->name('doctor.delete');
 });

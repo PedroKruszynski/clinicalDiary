@@ -4,6 +4,18 @@
   width: 50%;
 }
 
+#img-plus {
+  width: 6%;
+}
+
+.imgEdit {
+  width: 35%;
+}
+
+.imgDelete {
+  width: 15%;
+}
+
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
