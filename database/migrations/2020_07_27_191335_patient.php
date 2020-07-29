@@ -13,10 +13,13 @@ class Patient extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('patient', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 255);
+            $table->string('cpf', 10);
+            $table->date('date_of_birth')->nullable();
+            $table->string('telephone', 15);
+            $table->string('email', 255)->unique();
         });
     }
 
@@ -27,6 +30,6 @@ class Patient extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('patient');
     }
 }
