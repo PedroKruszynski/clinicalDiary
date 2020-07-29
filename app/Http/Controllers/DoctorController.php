@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\DoctorService;
-// use App\Http\Requests\DoctorRequest;
+use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
@@ -29,7 +29,7 @@ class DoctorController extends Controller
         return view('Doctor.DoctorCreateAndAlter', compact('doctor'));
     }
 
-    public function save(Request $request)
+    public function save(DoctorRequest $request)
     {
         $this->doctorService->save($request);
         return redirect()->action('DoctorController@index');
