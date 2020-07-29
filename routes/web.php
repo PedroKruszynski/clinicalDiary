@@ -44,3 +44,11 @@ Route::group(['prefix' => 'user'], function() {
     Route::put('/{id}',                                 'UserController@update')->name('user.update');
     Route::delete('/{id}',                              'UserController@delete')->name('user.delete');
 });
+
+Route::group(['prefix' => 'scheduling'], function() {
+    Route::get('/',                                     'SchedulingController@index')->name('scheduling.index');
+    Route::get('/createAndAlterView/{id?}',             'SchedulingController@createAndAlterView')->name('scheduling.createAndAlterView');
+    Route::post('/',                                    'SchedulingController@save')->name('scheduling.save');
+    Route::put('/{id}',                                 'SchedulingController@update')->name('scheduling.update');
+    Route::delete('/{id}',                              'SchedulingController@delete')->name('scheduling.delete');
+});
