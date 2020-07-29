@@ -40,12 +40,14 @@
                         name="doctor_id"
                         required>
                     @foreach ($doctors as $doctor)
-                        <option value="{{ $doctor->id }}">{{$doctor->name}}</option>
+                        <option value="{{ $doctor->id }}">
+                            {{$doctor->name}}
+                        </option>
                     @endforeach
                 </select>
 
             </div>
-
+            
             <div class="form-group col-4">
 
                 <label for="patient_id">Paciente</label>
@@ -55,7 +57,9 @@
                         name="patient_id"
                         required>
                     @foreach ($patients as $patient)
-                        <option value="{{ $patient->id }}"  @if($scheduling->patient_id == $patient->id) selected @endif>{{$patient->name}}</option>
+                        <option value="{{ $patient->id }}" @if(isset($scheduling))@if($scheduling->patient_id == $patient->id) selected @endif @endif>
+                            {{$patient->name}}
+                        </option>
                     @endforeach
                 </select>
 
@@ -69,7 +73,7 @@
                        type="datetime-local"
                        name="date" 
                        @if(isset($scheduling->date_of_scheduling))
-                            value="{{date('Y-m-d\TH:i', strtotime($scheduling->date_of_scheduling)) }}"
+                            value="{{ date('Y-m-d\TH:i', strtotime($scheduling->date_of_scheduling)) }}"
                        @endif
                        id="date"
                        required>
