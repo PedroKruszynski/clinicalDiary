@@ -40,4 +40,9 @@ class DoctorService implements DoctorInterface
         return $this->doctorRepository->findOne($request->id);
     }
 
+    public function store(Request $request)
+    {
+        $this->doctorService->store($request);
+    }
+
 }
