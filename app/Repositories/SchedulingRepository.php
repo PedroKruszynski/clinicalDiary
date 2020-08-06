@@ -29,7 +29,7 @@ class SchedulingRepository
                                                 'patient.name as patient_name', 
                                                 'doctor.name as doctor_name',
                                                 'scheduling.date_of_scheduling',
-                                                'scheduling.id',
+                                                'scheduling.id'
                                                 )
                                        ->leftJoin('patient', 'scheduling.patient_id', '=', 'patient.id')
                                        ->leftJoin('doctor', 'scheduling.doctor_id', '=', 'doctor.id')
@@ -41,7 +41,7 @@ class SchedulingRepository
     {
         $scheduling = $this->scheduling;
         $scheduling->description = $request->description;
-        $scheduling->date_of_scheduling = $request->date_of_scheduling;
+        $scheduling->date_of_scheduling = $request->date;
         $scheduling->doctor_id = $request->doctor_id;
         $scheduling->patient_id = $request->patient_id;
         $scheduling->save();
@@ -70,7 +70,7 @@ class SchedulingRepository
                                                 'doctor.id as doctor_id',
                                                 'scheduling.description',
                                                 'scheduling.date_of_scheduling',
-                                                'scheduling.id',
+                                                'scheduling.id'
                                                 )
                                     ->leftJoin('patient', 'scheduling.patient_id', '=', 'patient.id')
                                     ->leftJoin('doctor', 'scheduling.doctor_id', '=', 'doctor.id')
