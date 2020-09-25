@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Repositories;
 
@@ -7,7 +7,7 @@ use App\Doctor;
 use App\Patient;
 use Illuminate\Support\Facades\DB;
 
-class SchedulingRepository 
+class SchedulingRepository
 {
 
     private $scheduling;
@@ -21,12 +21,12 @@ class SchedulingRepository
         $this->scheduling = $scheduling;
         $this->doctor = $doctor;
         $this->patient = $patient;
-    } 
+    }
 
     public function index()
     {
         $scheduling = $this->scheduling->select(
-                                                'patient.name as patient_name', 
+                                                'patient.name as patient_name',
                                                 'doctor.name as doctor_name',
                                                 'scheduling.date_of_scheduling',
                                                 'scheduling.id'
@@ -57,7 +57,7 @@ class SchedulingRepository
     {
         $scheduling = $this->scheduling->find($request->id);
         $scheduling->description = $request->description ? $request->description : $scheduling->description;
-        $scheduling->date_of_scheduling = $request->date ? $request->date : $scheduling->date_of_scheduling;
+        $scheduling->date_of_scheduling = $request->date ? $request->date : $scheduling->date;
         $scheduling->doctor_id = $request->doctor_id ? $request->doctor_id : $scheduling->doctor_id;
         $scheduling->patient_id = $request->patient_id ? $request->patient_id : $scheduling->patient_id;
         $scheduling->save();
@@ -66,7 +66,7 @@ class SchedulingRepository
     public function findOne($id)
     {
         $scheduling = $this->scheduling->select(
-                                                'patient.id as patient_id', 
+                                                'patient.id as patient_id',
                                                 'doctor.id as doctor_id',
                                                 'scheduling.description',
                                                 'scheduling.date_of_scheduling',
@@ -75,7 +75,8 @@ class SchedulingRepository
                                     ->leftJoin('patient', 'scheduling.patient_id', '=', 'patient.id')
                                     ->leftJoin('doctor', 'scheduling.doctor_id', '=', 'doctor.id')
                                     // ->where('id', $id)
-                                    ->get()->first();
+                                    ->get()
+                                    ->first();
         return $scheduling;
     }
 
@@ -90,5 +91,5 @@ class SchedulingRepository
         $patients = $this->patient->all();
         return $patients;
     }
-    
+
 }

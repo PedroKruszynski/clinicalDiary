@@ -13,6 +13,7 @@ class SchedulingController extends Controller
 
     public function __construct(SchedulingService $schedulingService)
     {
+        $this->middleware('auth');
         $this->schedulingService = $schedulingService;
     }
 
