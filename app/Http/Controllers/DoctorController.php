@@ -13,6 +13,7 @@ class DoctorController extends Controller
 
     public function __construct(DoctorService $doctorService)
     {
+        $this->middleware('auth');
         $this->doctorService = $doctorService;
     }
 
@@ -24,7 +25,7 @@ class DoctorController extends Controller
 
     public function createAndAlterView(Request $request)
     {
-        
+
         $doctor = isset($request->id) ? $this->doctorService->findOne($request) : null;
         return view('Doctor.DoctorCreateAndAlter', compact('doctor'));
     }
@@ -35,7 +36,7 @@ class DoctorController extends Controller
         return redirect()->action('DoctorController@index');
     }
 
-    public function update(Request $request)
+    public function update(DoctorRequest $request)
     {
         $this->doctorService->update($request);
         return redirect()->action('DoctorController@index');

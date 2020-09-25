@@ -28,12 +28,12 @@
                     {{ config('app.name', 'Clinical Diary') }}
                 </a>
 
-                <button class="navbar-toggler" 
-                        type="button" 
-                        data-toggle="collapse" 
-                        data-target="#navbarSupportedContent" 
-                        aria-controls="navbarSupportedContent" 
-                        aria-expanded="false" 
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
                         aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -58,13 +58,13 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a  id="navbarDropdown" 
-                                    class="nav-link dropdown-toggle" 
+                                <a  id="navbarDropdown"
+                                    class="nav-link dropdown-toggle"
                                     href="#"
-                                    role="button" 
-                                    data-toggle="dropdown" 
+                                    role="button"
+                                    data-toggle="dropdown"
                                     aria-haspopup="true"
-                                    aria-expanded="false" 
+                                    aria-expanded="false"
                                     v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
@@ -105,5 +105,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <script src="{{ asset('js/app.js') }}"></script>
+
+<!-- Mask Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
 </html>

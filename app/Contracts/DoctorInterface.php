@@ -15,6 +15,6 @@ interface DoctorInterface {
 
     public function findOne($request);
 
-    public function update(Request $request);
+    public function update(DoctorRequest $request);
 
 }

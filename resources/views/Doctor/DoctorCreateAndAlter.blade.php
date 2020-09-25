@@ -4,7 +4,11 @@
 
 <div class="container">
 
-    <form @if(isset($doctor)) action="{{route('doctor.update', $doctor->id)}}" @else action="{{ route('doctor.save') }}" @endif
+    <form @if(isset($doctor))
+            action="{{route('doctor.update', $doctor->id)}}"
+          @else
+            action="{{ route('doctor.save') }}"
+          @endif
           method="POST">
 
         @CSRF
@@ -17,55 +21,84 @@
             <div class="form-group col-12">
 
                 <label for="nome">Nome</label>
-    
-                <input  type="text" 
-                        class="form-control" 
-                        id="nome" 
+
+                <input  type="text"
+                        class="form-control"
+                        id="nome"
                         name="name"
                         maxlength="255"
-                        @if(isset($doctor->name))
-                            value="{{$doctor->name}}"
-                        @endif
+                        minlength="3"
                         placeholder="Nome"
-                        required>
-    
+                        required
+                        @if(old('name'))
+                            value="{{ old('name') }}"
+                        @elseif(isset($doctor->name))
+                            value="{{ $doctor->name }}"
+                        @endif
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
         </div>
 
         <div class="row col-12">
 
             <div class="form-group col-6">
-    
+
                 <label for="cpf">Cpf</label>
-    
-                <input  type="text" 
-                        class="form-control" 
+
+                <input  type="text"
+                        class="form-control"
                         id="cpf"
                         maxlength="10"
                         placeholder="Cpf"
-                        @if(isset($doctor->cpf))
-                            value="{{$doctor->cpf}}"
-                        @endif
+                        data-mask="000.000.000-00"
+                        data-mask-reverse="true"
                         name="cpf"
-                        required>
-    
+                        required
+                        @if(old('cpf'))
+                            value="{{ old('cpf') }}"
+                        @elseif(isset($doctor->cpf))
+                            value="{{ $doctor->cpf }}"
+                        @endif
+                        @error('cpf')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
 
             <div class="form-group col-6">
 
                 <label for="crm">Crm</label>
-    
-                <input  type="text" 
-                        class="form-control" 
+
+                <input  type="text"
+                        class="form-control"
                         id="crm"
                         placeholder="Crm"
-                        maxlength="10"
-                        @if(isset($doctor->crm))
-                            value="{{$doctor->crm}}"
-                        @endif
+                        maxlength="7"
+                        data-mask="0000000"
+                        data-mask-reverse="true"
                         name="crm"
-                        required>
-    
+                        required
+                        @if(old('crm'))
+                            value="{{ old('crm') }}"
+                        @elseif(isset($doctor->crm))
+                            value="{{ $doctor->crm }}"
+                        @endif
+                        @error('crm')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
 
         </div>
@@ -75,57 +108,84 @@
             <div class="form-group col-4">
 
                 <label for="telephone">Telefone</label>
-    
-                <input  type="text" 
-                        class="form-control" 
+
+                <input  type="text"
+                        class="form-control"
                         id="telephone"
                         placeholder="Telefone"
                         maxlength="15"
-                        @if(isset($doctor->telephone))
-                            value="{{$doctor->telephone}}"
-                        @endif
+                        data-mask="(00) 0000-0000"
                         name="telephone"
-                        required>
-    
+                        required
+                        @if(old('telephone'))
+                            value="{{ old('telephone') }}"
+                        @elseif(isset($doctor->telephone))
+                            value="{{ $doctor->telephone }}"
+                        @endif
+                        @error('telephone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
 
             <div class="form-group col-4">
 
                 <label for="date">Data de nascimento</label>
-    
-                <input class="form-control" 
+
+                <input class="form-control"
                        type="date"
-                       name="date" 
-                       @if(isset($doctor->date_of_birth))
-                            value="{{$doctor->date_of_birth }}"
-                       @endif
+                       name="date"
+                       min="1940-01-01"
                        id="date"
-                       required>
-    
+                       required
+                       @if(old('date'))
+                            value="{{ old('date') }}"
+                       @elseif(isset($doctor->date_of_birth))
+                            value="{{ $doctor->date_of_birth }}"
+                       @endif
+                        @error('date')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
 
             <div class="form-group col-4">
 
                 <label for="specialty">Especialidade</label>
-    
-                <input  type="text" 
-                        class="form-control" 
+
+                <input  type="text"
+                        class="form-control"
                         id="specialty"
                         placeholder="Especialidade"
                         maxlength="255"
-                        @if(isset($doctor->specialty))
-                            value="{{$doctor->specialty}}"
-                        @endif
+                        minlength="2"
                         name="specialty"
-                        required>
-    
+                        required
+                        @if(old('specialty'))
+                            value="{{ old('specialty') }}"
+                        @elseif(isset($doctor->specialty))
+                            value="{{ $doctor->specialty }}"
+                        @endif
+                        @error('specialty')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                >
+
             </div>
 
         </div>
 
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
-                <button type="submit" 
+                <button type="submit"
                         class="btn btn-primary">
                             Salvar
                 </button>

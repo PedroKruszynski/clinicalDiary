@@ -16,7 +16,7 @@ class Patient extends Migration
         Schema::create('patient', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('cpf', 10);
+            $table->string('cpf', 16);
             $table->date('date_of_birth')->nullable();
             $table->string('telephone', 15);
             $table->string('email', 255)->unique();
